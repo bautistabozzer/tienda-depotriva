@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Deportiva</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda Deportiva</h1>
+        <div id="header-buttons">
+            <button id="toggle-view" class="toggle-view">Ver como Administrador</button>
+            <div id="cart-icon" class="toggle-view">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+    <aside id="category-sidebar" class="category-sidebar">
+        <h2>Categorías</h2>
+        <ul id="category-list">
+            <li><button data-category="Buzos">Buzos</button></li>
+            <li><button data-category="Camperas">Camperas</button></li>
+            <li><button data-category="Pantalones">Pantalones</button></li>
+            <li><button data-category="Camisetas">Camisetas</button></li>
+            <li><button data-category="Zapatillas">Zapatillas</button></li>
+            <li><button data-category="Accesorios">Accesorios</button></li>
+        </ul>
+    </aside>
+    <main>
+        <section id="products">
+            <h2>Productos Disponibles</h2>
+            <div id="product-grid"></div>
+        </section>
+        <aside id="cart-sidebar" class="cart-sidebar">
+            <h2>Tu Canasta</h2>
+            <button id="close-cart" class="close-cart">×</button>
+            <ul id="cart-list"></ul>
+            <p id="cart-total">Subtotal: $0</p>
+            <button id="checkout">Ir a pagar</button>
+        </aside>
+        <div id="cart-overlay" class="cart-overlay"></div>
+    </main>
+
+    <!-- Modal de Pago -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h2>Formas de Pago</h2>
+            <div class="payment-method">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" readonly>
+            </div>
+            <div class="payment-method">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address" readonly>
+            </div>
+            <div class="payment-method">
+                <label for="card">Tarjeta de Crédito:</label>
+                <input type="text" id="card" name="card" readonly>
+            </div>
+            <button type="button" id="finalize-purchase">Finalizar Compra</button>
+        </div>
+    </div>
+
+
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>

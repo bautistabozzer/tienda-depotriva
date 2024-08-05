@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Tienda Deportiva</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Admin - Tienda Deportiva</h1>
+        <div id="header-buttons">
+            <button id="toggle-view" class="toggle-view">Ver como Cliente</button>
+        </div>
+    </header>
+    <nav class="admin-nav">
+        <button id="nav-add-product" class="admin-nav-btn">Gestión de Productos</button>
+        <button id="nav-analytics" class="admin-nav-btn">Analíticas del Negocio</button>
+        <button id="nav-update-stock" class="admin-nav-btn">Actualizar Stock</button>
+    </nav>
+    <main>
+        <section id="admin-section">
+            <h2>Gestión de Productos</h2>
+            <div id="product-grid"></div>
+        </section>
+        <section id="analytics-section" class="hidden">
+            <h2>Analíticas del Negocio</h2>
+            <div class="analytics-cards">
+                <div class="card" id="total-orders-card">
+                    <h3>Órdenes Totales</h3>
+                    <p id="total-orders">0</p>
+                </div>
+                <div class="card" id="income-card">
+                    <h3>Ingresos</h3>
+                    <p id="income-amount">$0</p>
+                </div>
+                <div class="card" id="stock-sold-card">
+                    <h3>Stock Vendido</h3>
+                    <p id="stock-sold">0</p>
+                </div>
+                <div id="admin-actions">
+                    <button id="clear-sales">Eliminar Últimas Ventas</button>
+                    <button id="clear-zero-stock">Limpiar Productos Sin Stock</button>
+                </div>
+            </div>
+            <h3>Últimas Ventas</h3>
+            <ul id="sales-list">
+                <!-- Últimas ventas -->
+            </ul>
+        </section>
+        <section id="update-stock-section" class="hidden">
+            <h2>Actualizar Stock</h2>
+            <div id="drop-area">
+                <p>ARRASTRAR ARCHIVO</p>
+                <input type="file" id="file-input" accept=".csv" hidden>
+                <button id="select-file">Seleccionar Archivo</button>
+                <button id="upload-file">Subir Archivo</button>
+            </div>
+            <div>
+                <a href="template.csv" download="template.csv" id="download-template">Descargar Template CSV</a>
+                <button id="load-sample-stock">Stock de Prueba</button>
+            </div>
+            <table id="csv-preview" class="hidden">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Categoría</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="add-product-update-stock" class="add-product">Agregar Producto</button>
+        </section>
+    </main>
+
+    <!-- Modal de Producto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <h2>Agregar/Editar Producto</h2>
+            <form id="product-form">
+                <label for="product-name">Nombre:</label>
+                <input type="text" id="product-name" name="product-name" required>
+
+                <label for="product-price">Precio:</label>
+                <input type="number" id="product-price" name="product-price" required>
+
+                <label for="product-stock">Stock:</label>
+                <input type="number" id="product-stock" name="product-stock" required>
+
+                <label for="product-category">Categoría:</label>
+                <select id="product-category" name="product-category" required>
+                    <option value="Buzos">Buzos</option>
+                    <option value="Camperas">Camperas</option>
+                    <option value="Pantalones">Pantalones</option>
+                    <option value="Camisetas">Camisetas</option>
+                    <option value="Zapatillas">Zapatillas</option>
+                    <option value="Accesorios">Accesorios</option>
+                </select>
+
+                <label for="product-image">URL de Imagen:</label>
+                <input type="text" id="product-image" name="product-image">
+
+                <button type="submit" id="save-product">Guardar Producto</button>
+                <button type="button" id="cancel">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
