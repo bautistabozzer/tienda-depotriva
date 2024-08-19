@@ -163,47 +163,55 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderAnalytics = () => {
+        // Obtener los elementos de las tarjetas
+        const totalProductsElement = document.getElementById('total-products');
+        const inventoryValueElement = document.getElementById('inventory-value');
+        const dailySalesElement = document.getElementById('daily-sales');
+        const totalItemsSoldElement = document.getElementById('total-items-sold'); // Nuevo elemento para artículos vendidos
+    
+        // Verificar que los elementos existan
+        if (!totalProductsElement || !inventoryValueElement || !dailySalesElement || !totalItemsSoldElement) {
+            console.error("No se encontraron los elementos necesarios en el DOM.");
+            return;
+        }
+    
+        // Obtener ventas y productos desde localStorage
         const sales = JSON.parse(localStorage.getItem('sales')) || [];
         const products = JSON.parse(localStorage.getItem('products')) || [];
-
-        let totalIncome = 0;
-        let totalOrdersCount = sales.length;
-        const categoryStock = {};
-
-        salesList.innerHTML = '';
-        stockSoldList.innerHTML = '';
-        sales.forEach(sale => {
-            // Verificar si la venta tiene items
-            if (sale.items.length > 0) {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <h4>Compra #${sale.id}</h4>
-                    <ul>
-                        ${sale.items.map(item => `<li>${item.productName} - ${item.quantity} unidades - $${(item.price * item.quantity).toFixed(2)}</li>`).join('')}
-                    </ul>
-                `;
-                salesList.appendChild(listItem);
-
-                sale.items.forEach(item => {
-                    totalIncome += item.price * item.quantity;
-
-                    if (!categoryStock[item.category]) {
-                        categoryStock[item.category] = 0;
-                    }
-                    categoryStock[item.category] += item.quantity;
-                });
-            }
-        });
-
-        incomeAmount.textContent = `$${totalIncome.toFixed(2)}`;
-        totalOrders.textContent = totalOrdersCount;
-
-        let stockSoldHtml = '';
-        Object.keys(categoryStock).forEach(category => {
-            stockSoldHtml += `${category}: ${categoryStock[category]}<br>`;
-        });
-        document.getElementById('stock-sold').innerHTML = stockSoldHtml;
+    
+        // Cálculo del total de productos
+        const totalProducts = products.length;
+    
+        // Cálculo del valor del inventario
+        const inventoryValue = products.reduce((total, product) => total + product.price * product.stock, 0);
+    
+        // Cálculo de las ventas del día
+        const dailySales = sales.reduce((total, sale) => {
+            const saleDate = new Date(sale.date);
+            const today = new Date();
+            return saleDate.toDateString() === today.toDateString() ? total + sale.items.reduce((subTotal, item) => subTotal + item.price * item.quantity, 0) : total;
+        }, 0);
+    
+        // Cálculo del total de artículos vendidos
+        const totalItemsSold = sales.reduce((total, sale) => {
+            return total + sale.items.reduce((itemTotal, item) => itemTotal + item.quantity, 0);
+        }, 0);
+    
+        // Actualizar las tarjetas con los valores calculados
+        totalProductsElement.textContent = totalProducts;
+        inventoryValueElement.textContent = `$${inventoryValue.toFixed(2)}`;
+        dailySalesElement.textContent = `$${dailySales.toFixed(2)}`;
+        totalItemsSoldElement.textContent = totalItemsSold; // Actualizar el valor de la nueva tarjeta
+    
+        // Consola para depuración
+        console.log("Total de Productos:", totalProducts);
+        console.log("Valor del Inventario:", inventoryValue);
+        console.log("Ventas del Día:", dailySales);
+        console.log("Artículos Vendidos:", totalItemsSold);
     };
+    
+    
+    
 
     const clearSales = () => {
         localStorage.removeItem('sales');

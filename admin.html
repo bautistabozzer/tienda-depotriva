@@ -24,31 +24,38 @@
             <h2>Gestión de Productos</h2>
             <div id="product-grid"></div>
         </section>
+        
         <section id="analytics-section" class="hidden">
             <h2>Analíticas del Negocio</h2>
             <div class="analytics-cards">
-                <div class="card" id="total-orders-card">
-                    <h3>Órdenes Totales</h3>
-                    <p id="total-orders">0</p>
+                <div class="card">
+                    <h3>Total de Productos</h3>
+                    <p id="total-products">0</p>
                 </div>
-                <div class="card" id="income-card">
-                    <h3>Ingresos</h3>
-                    <p id="income-amount">$0</p>
+                <div class="card">
+                    <h3>Valor del Inventario</h3>
+                    <p id="inventory-value">$0.00</p>
                 </div>
-                <div class="card" id="stock-sold-card">
-                    <h3>Stock Vendido</h3>
-                    <p id="stock-sold">0</p>
+                <div class="card">
+                    <h3>Ventas del Día</h3>
+                    <p id="daily-sales">$0.00</p>
                 </div>
-                <div id="admin-actions">
-                    <button id="clear-sales">Eliminar Últimas Ventas</button>
-                    <button id="clear-zero-stock">Limpiar Productos Sin Stock</button>
+                <div class="card">
+                    <h3>Artículos Vendidos</h3>
+                    <p id="total-items-sold">0</p> <!-- Nueva tarjeta para artículos vendidos -->
                 </div>
             </div>
+        
+            <div id="admin-actions">
+                <button id="clear-sales">Eliminar Últimas Ventas</button>
+                <button id="clear-zero-stock">Limpiar Productos Sin Stock</button>
+            </div>
+        
             <h3>Últimas Ventas</h3>
             <ul id="sales-list">
                 <!-- Últimas ventas -->
             </ul>
-        </section>
+        </section>                     
         <section id="update-stock-section" class="hidden">
             <h2>Actualizar Stock</h2>
             <div id="drop-area">

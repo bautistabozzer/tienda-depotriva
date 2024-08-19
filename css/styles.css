@@ -666,8 +666,9 @@ main {
 /* Estilos para las tarjetas de analíticas */
 .analytics-cards {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Asegura que las tarjetas se distribuyan uniformemente */
     margin-bottom: 20px;
+    gap: 20px; /* Espaciado entre las tarjetas */
 }
 
 .card {
@@ -676,9 +677,11 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 23%;
+    flex: 1; /* Las tarjetas tomarán el mismo ancho disponible */
     text-align: center;
+    margin: 0 10px; /* Margen lateral para espaciado adicional */
 }
+
 
 .card h3 {
     margin-bottom: 10px;
@@ -743,6 +746,54 @@ button:disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
+}
+
+#admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#admin-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#admin-actions button:hover {
+    background-color: #0056b3;
+}
+.analytics-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.card p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
 }
 
 #admin-actions {
