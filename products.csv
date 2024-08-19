@@ -1,19 +1,19 @@
 name,price,stock,category,image
-Buzo 1,100,10,Buzos,https://via.placeholder.com/300x300?text=Buzo+1
-Buzo 2,120,8,Buzos,https://via.placeholder.com/300x300?text=Buzo+2
-Buzo 3,150,15,Buzos,https://via.placeholder.com/300x300?text=Buzo+3
-Campera 1,200,5,Camperas,https://via.placeholder.com/300x300?text=Campera+1
-Campera 2,220,7,Camperas,https://via.placeholder.com/300x300?text=Campera+2
-Campera 3,250,12,Camperas,https://via.placeholder.com/300x300?text=Campera+3
-Pantalón 1,180,10,Pantalones,https://via.placeholder.com/300x300?text=Pantalón+1
-Pantalón 2,200,9,Pantalones,https://via.placeholder.com/300x300?text=Pantalón+2
-Pantalón 3,230,8,Pantalones,https://via.placeholder.com/300x300?text=Pantalón+3
-Camiseta 1,50,30,Camisetas,https://via.placeholder.com/300x300?text=Camiseta+1
-Camiseta 2,60,25,Camisetas,https://via.placeholder.com/300x300?text=Camiseta+2
-Camiseta 3,70,20,Camisetas,https://via.placeholder.com/300x300?text=Camiseta+3
-Zapatilla 1,300,10,Zapatillas,https://via.placeholder.com/300x300?text=Zapatilla+1
-Zapatilla 2,350,8,Zapatillas,https://via.placeholder.com/300x300?text=Zapatilla+2
-Zapatilla 3,400,6,Zapatillas,https://via.placeholder.com/300x300?text=Zapatilla+3
-Accesorio 1,20,50,Accesorios,https://via.placeholder.com/300x300?text=Accesorio+1
-Accesorio 2,25,40,Accesorios,https://via.placeholder.com/300x300?text=Accesorio+2
-Accesorio 3,30,35,Accesorios,https://via.placeholder.com/300x300?text=Accesorio+3
+Buzo Negro,100,10,Buzos,https://http2.mlstatic.com/D_NQ_NP_2X_935845-MLA75681958119_042024-F.webp
+Buzo Crema,120,8,Buzos,https://http2.mlstatic.com/D_NQ_NP_2X_665448-MLA76880456387_062024-F.webp
+Buzo Verde,150,15,Buzos,https://http2.mlstatic.com/D_NQ_NP_2X_964346-MLA76689134767_052024-F.webp
+Campera PUMA,200,5,Camperas,https://http2.mlstatic.com/D_NQ_NP_2X_980325-MLA78380981233_082024-F.webp
+Campera ADIDAS,220,7,Camperas,https://http2.mlstatic.com/D_NQ_NP_2X_746332-MLA78130007874_082024-F.webp
+Campera NIKE,250,12,Camperas,https://http2.mlstatic.com/D_NQ_NP_2X_723594-MLA72338659995_102023-F.webp
+Pantalón Babucha Negro,180,10,Pantalones,https://http2.mlstatic.com/D_NQ_NP_2X_927472-MLA49938680854_052022-F.webp
+Pantalón Babucha Plateado,200,9,Pantalones,https://http2.mlstatic.com/D_NQ_NP_2X_774765-MLA48195602803_112021-F.webp
+Pantalón Jogging M,230,8,Pantalones,https://http2.mlstatic.com/D_NQ_NP_2X_969515-MLA74998727807_032024-F.webp
+Camiseta River,50,30,Camisetas,https://http2.mlstatic.com/D_NQ_NP_2X_781564-MLA77543227974_072024-F.webp
+Camiseta Seleccion Argentina,60,25,Camisetas,https://http2.mlstatic.com/D_NQ_NP_2X_755222-MLA77960886417_072024-F.webp
+Camiseta Boca RETRO,90,20,Camisetas,https://http2.mlstatic.com/D_NQ_NP_2X_668223-MLA46014483915_052021-F.webp
+Zapatilla Nike Blanca,300,10,Zapatillas,https://http2.mlstatic.com/D_NQ_NP_2X_920744-MLA73309915869_122023-F.webp
+Zapatilla Nike Blanca Pipa Negra,350,8,Zapatillas,https://http2.mlstatic.com/D_NQ_NP_2X_795112-MLA74212898822_012024-F.webp
+Zapatilla Nike Negra Pipa Blanca,400,6,Zapatillas,https://http2.mlstatic.com/D_NQ_NP_2X_659941-MLA73309915741_122023-F.webp
+Piluso Nike,20,50,Accesorios,https://http2.mlstatic.com/D_NQ_NP_2X_611929-MLA74667205208_022024-F.webp
+Visera Nike Rosa,25,40,Accesorios,https://http2.mlstatic.com/D_NQ_NP_2X_808374-MLA73573305928_122023-F.webp
+Visera Nike Verde Claro,30,35,Accesorios,https://http2.mlstatic.com/D_NQ_NP_2X_973526-MLA73573030182_122023-F.webp
