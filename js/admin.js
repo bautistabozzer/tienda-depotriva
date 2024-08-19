@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalProductsElement = document.getElementById('total-products');
         const inventoryValueElement = document.getElementById('inventory-value');
         const dailySalesElement = document.getElementById('daily-sales');
-        const totalItemsSoldElement = document.getElementById('total-items-sold'); // Nuevo elemento para artículos vendidos
+        const totalItemsSoldElement = document.getElementById('total-items-sold');
     
         // Verificar que los elementos existan
         if (!totalProductsElement || !inventoryValueElement || !dailySalesElement || !totalItemsSoldElement) {
@@ -201,7 +201,45 @@ document.addEventListener('DOMContentLoaded', () => {
         totalProductsElement.textContent = totalProducts;
         inventoryValueElement.textContent = `$${inventoryValue.toFixed(2)}`;
         dailySalesElement.textContent = `$${dailySales.toFixed(2)}`;
-        totalItemsSoldElement.textContent = totalItemsSold; // Actualizar el valor de la nueva tarjeta
+        totalItemsSoldElement.textContent = totalItemsSold;
+    
+        // Cálculo del total de artículos vendidos por categoría para el gráfico
+        const categorySales = {};
+        sales.forEach(sale => {
+            sale.items.forEach(item => {
+                if (!categorySales[item.category]) {
+                    categorySales[item.category] = 0;
+                }
+                categorySales[item.category] += item.quantity;
+            });
+        });
+    
+        // Preparamos los datos para Chart.js
+        const categories = Object.keys(categorySales);
+        const quantities = categories.map(category => categorySales[category]);
+    
+        // Renderizamos el gráfico
+        const ctx = document.getElementById('categorySalesChart').getContext('2d');
+        const categorySalesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: categories, // Nombres de las categorías
+                datasets: [{
+                    label: 'Prendas Vendidas por Categoría',
+                    data: quantities, // Cantidad vendida por cada categoría
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     
         // Consola para depuración
         console.log("Total de Productos:", totalProducts);
@@ -209,8 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Ventas del Día:", dailySales);
         console.log("Artículos Vendidos:", totalItemsSold);
     };
-    
-    
+        
     
 
     const clearSales = () => {
