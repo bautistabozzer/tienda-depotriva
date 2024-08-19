@@ -163,12 +163,25 @@ header {
     text-align: center;
 }
 
-.product-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
+.card img {
+    width: 100%; /* La imagen ocupará el ancho completo del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen se recorte para cubrir todo el contenedor */
+    border-radius: 8px 8px 0 0; /* Opcional: Redondear la parte superior si las tarjetas también lo están */
 }
+
+.card {
+    overflow: hidden; /* Asegura que cualquier contenido que desborde se oculte */
+    border-radius: 8px; /* Redondear las esquinas de la tarjeta */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para la tarjeta */
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+
 
 .product-card h3 {
     margin: 10px 0;
