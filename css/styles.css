@@ -816,3 +816,27 @@ button:disabled {
 #admin-actions button:hover {
     background-color: #0056b3;
 }
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.sales-table th, .sales-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.sales-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.sales-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.sales-table tr:hover {
+    background-color: #ddd;
+}

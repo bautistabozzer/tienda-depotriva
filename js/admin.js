@@ -168,9 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const inventoryValueElement = document.getElementById('inventory-value');
         const dailySalesElement = document.getElementById('daily-sales');
         const totalItemsSoldElement = document.getElementById('total-items-sold');
+        const salesTableBody = document.getElementById('sales-table').querySelector('tbody');
     
         // Verificar que los elementos existan
-        if (!totalProductsElement || !inventoryValueElement || !dailySalesElement || !totalItemsSoldElement) {
+        if (!totalProductsElement || !inventoryValueElement || !dailySalesElement || !totalItemsSoldElement || !salesTableBody) {
             console.error("No se encontraron los elementos necesarios en el DOM.");
             return;
         }
@@ -241,13 +242,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     
+        // Limpiar la tabla de ventas
+        salesTableBody.innerHTML = ''; 
+    
+        // Generar filas para la tabla de ventas
+        sales.forEach(sale => {
+            const row = document.createElement('tr');
+            
+            const saleNumberCell = document.createElement('td');
+            saleNumberCell.textContent = `#${sale.id}`;
+    
+            const quantityCell = document.createElement('td');
+            const totalQuantity = sale.items.reduce((total, item) => total + item.quantity, 0);
+            quantityCell.textContent = totalQuantity;
+    
+            const productsCell = document.createElement('td');
+            const productList = sale.items.map(item => `${item.productName} (${item.quantity})`).join(', ');
+            productsCell.textContent = productList;
+    
+            row.appendChild(saleNumberCell);
+            row.appendChild(quantityCell);
+            row.appendChild(productsCell);
+    
+            salesTableBody.appendChild(row);
+        });
+    
         // Consola para depuración
         console.log("Total de Productos:", totalProducts);
         console.log("Valor del Inventario:", inventoryValue);
         console.log("Ventas del Día:", dailySales);
         console.log("Artículos Vendidos:", totalItemsSold);
     };
-        
     
 
     const clearSales = () => {
