@@ -853,3 +853,8 @@ button:disabled {
 .sales-table tr:hover {
     background-color: #ddd;
 }
+#weather-widget {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}

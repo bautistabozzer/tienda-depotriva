@@ -10,6 +10,9 @@
 </head>
 <body>
     <header>
+        <div id="weather-widget">
+            <p>Cargando clima...</p>
+        </div>
         <h1>Tienda Deportiva</h1>
         <div id="header-buttons">
             <button id="toggle-view" class="toggle-view">Ver como Administrador</button>
@@ -69,5 +72,55 @@
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/payment.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apiKey = '6e350b3eed51f98b529d9cab66e29c81';  // Reemplaza con tu clave API real
+            const weatherWidget = document.getElementById('weather-widget');
+        
+            function fetchWeather(lat, lon) {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=es`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (weatherWidget) {
+                            weatherWidget.innerHTML = `
+                                <p>${data.name}: ${data.weather[0].description}, ${data.main.temp}°C</p>
+                            `;
+                        } else {
+                            console.error('No se pudo encontrar el elemento weather-widget.');
+                        }
+                    })
+                    .catch(error => {
+                        if (weatherWidget) {
+                            weatherWidget.innerHTML = '<p>No se pudo cargar el clima.</p>';
+                        }
+                        console.error('Error fetching weather:', error);
+                    });
+            }
+        
+            // Obtener la ubicación del usuario
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        fetchWeather(lat, lon);
+                    },
+                    (error) => {
+                        console.error('Error obteniendo la geolocalización:', error);
+                        if (weatherWidget) {
+                            weatherWidget.innerHTML = '<p>No se pudo obtener la ubicación.</p>';
+                        }
+                    }
+                );
+            } else {
+                console.error('Geolocalización no es soportada por este navegador.');
+                if (weatherWidget) {
+                    weatherWidget.innerHTML = '<p>Geolocalización no soportada.</p>';
+                }
+            }
+        });
+        </script>
+        
+    
 </body>
 </html>
