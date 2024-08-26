@@ -82,8 +82,10 @@
                     .then(response => response.json())
                     .then(data => {
                         if (weatherWidget) {
+                            const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
                             weatherWidget.innerHTML = `
-                                <p>${data.name}: ${data.weather[0].description}, ${data.main.temp}°C</p>
+                                <img src="${iconUrl}" alt="${data.weather[0].description}">
+                                <p><strong>${data.name}:</strong> ${data.weather[0].description}, ${data.main.temp.toFixed(1)}°C</p>
                             `;
                         } else {
                             console.error('No se pudo encontrar el elemento weather-widget.');

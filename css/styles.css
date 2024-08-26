@@ -328,7 +328,7 @@ header {
 /* Estilos del sidebar de categorías */
 .category-sidebar {
     position: fixed;
-    top: 100px;
+    top: 150px;
     left: 0;
     width: 200px;
     height: calc(100% - 100px);
@@ -854,7 +854,19 @@ button:disabled {
     background-color: #ddd;
 }
 #weather-widget {
-    font-size: 14px;
-    color: #333;
-    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    color: #333; /* Color de texto gris oscuro */
+    display: flex; /* Utiliza flexbox para centrar elementos */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Espacio entre elementos */
+    margin: 20px 0; /* Margen arriba y abajo */
+}
+
+#weather-widget img {
+    width: 40px; /* Tamaño del icono */
+    height: auto; /* Mantiene la proporción del icono */
 }
